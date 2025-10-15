@@ -1,0 +1,88 @@
+:root{
+  --bg:#f8f6f4; --paper:#fff; --ink:#2e2a27; --sub:#6f6a67;
+  --primary:#a684ff; --primary-weak:#ece5ff; --accent-weak:#ffe9de;
+  --radius:16px; --shadow:0 10px 28px rgba(0,0,0,.08);
+  --border:#ebe7e4; --danger:#ff6b6b;
+}
+
+/* 모바일 우선: 기본을 모바일 기준으로, 점진적 확대 */
+*{box-sizing:border-box}
+html,body{height:100%; -webkit-text-size-adjust:100%}
+body{
+  margin:0; padding:0;
+  font-family:system-ui,-apple-system,Apple SD Gothic Neo,Noto Sans KR,Roboto,Segoe UI,sans-serif;
+  background:linear-gradient(180deg,#fbfaf9,var(--bg));
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+}
+
+.app{max-width:720px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
+.hdr{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(255,255,255,.78);backdrop-filter:blur(8px);border-bottom:1px solid rgba(0,0,0,.06)}
+.brand{font-weight:800}
+.pill{margin-left:auto;font-size:12px;padding:6px 10px;background:var(--primary-weak);color:#4a2db3;border-radius:999px}
+
+.view{display:none;padding:14px}
+.view.active{display:block}
+.card{background:var(--paper);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px}
+
+.cal-header{display:flex;align-items:center;justify-content:space-between}
+.cal-title{margin:0;font-size:18px}
+.iconbtn{border:1px solid var(--border);background:#fff;border-radius:12px;padding:10px 12px;min-width:44px;min-height:44px;cursor:pointer}
+.weekday{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;color:var(--sub);font-size:12px;margin-top:8px;text-align:center}
+.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:8px}
+.cell{aspect-ratio:1/1;border-radius:12px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-weight:700;border:1px solid transparent;min-height:44px}
+.cell.today{background:var(--accent-weak);color:#a15a3a}
+.cell.selected{background:var(--primary-weak);border-color:#b7a2ff}
+.hint{margin-top:10px;color:var(--sub);font-size:13px;text-align:center}
+
+.moods{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:10px}
+.mood{background:#faf8ff;border-radius:12px;padding:12px;text-align:center;cursor:pointer}
+.mood input{display:none}
+.emoji{font-size:22px}
+.moodlabel{font-size:12px;color:#5a3dc6}
+
+.praiseBox{margin-top:12px}
+.praise{width:100%;padding:12px;border-radius:10px;border:1px solid #eee}
+.praiseCount{text-align:right;color:var(--sub);font-size:12px}
+
+textarea.diary{width:100%;min-height:44vh;padding:12px;border-radius:12px;border:1px solid #eee;resize:vertical}
+.writeHeader{display:flex;justify-content:space-between;align-items:center}
+.writeDate{font-weight:700}
+.writeMeta{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.row-right{display:flex;justify-content:flex-end}
+.gap{gap:10px}
+
+.badge{padding:6px 8px;border-radius:999px;background:var(--primary-weak);color:#5a3dc6}
+.list{display:grid;gap:10px}
+.item{display:flex;gap:10px;align-items:center;padding:10px;border-radius:12px}
+.smallbtn{border:0;background:transparent;cursor:pointer;font-size:18px;min-width:44px;min-height:44px}
+
+.nav{position:sticky;bottom:0;background:rgba(255,255,255,.88);border-top:1px solid rgba(0,0,0,.06);backdrop-filter:blur(8px)}
+.tabs{display:grid;grid-template-columns:repeat(5,1fr)}
+.tab{padding:14px 6px;text-align:center;color:var(--sub);cursor:pointer;background:transparent;border:0;font-size:15px}
+.tab.active{color:#5a3dc6;font-weight:700}
+
+.btn{border:1px solid var(--border);background:#fff;padding:12px 16px;border-radius:12px;cursor:pointer;min-height:44px}
+.btn.primary{border:0;background:var(--primary);color:#fff;font-weight:700}
+.btn.ghost{background:var(--primary-weak);border-color:transparent;color:#4a2db3}
+.btn.danger{border-color:var(--danger);color:#fff;background:var(--danger)}
+
+.soft{color:var(--sub);font-size:13px}
+.subtitle{color:var(--sub);font-size:13px}
+.mt8{margin-top:8px}
+.mt12{margin-top:12px}
+
+.chip{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:999px;background:var(--primary-weak);color:#5a3dc6}
+.statsCanvas{width:100%;height:220px;margin-top:12px}
+
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,.25);z-index:50}
+.modalBody{background:#fff;border-radius:12px;padding:16px;width:min(680px,96%);max-height:70vh;overflow:auto}
+.summaryBox{white-space:pre-wrap;background:#fafafa;border-radius:10px;padding:12px;min-height:60px}
+.detailDiary{white-space:pre-wrap;background:#fff;padding:8px;border-radius:8px}
+
+/* 태블릿 이상에서 폰트/그리드 확장 */
+@media (min-width:768px){
+  .cal-title{font-size:20px}
+  .emoji{font-size:24px}
+}
+
